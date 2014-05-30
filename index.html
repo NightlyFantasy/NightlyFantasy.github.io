@@ -1,76 +1,308 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>jQuery Mobile: Demos and Documentation</title>
-	<link rel="stylesheet"  href="css/themes/default/jquery.mobile.css" />
-	<link rel="stylesheet" href="docs/_assets/css/jqm-docs.css" />
-	<script src="js/jquery.js"></script>
-	<script src="docs/_assets/js/jqm-docs.js"></script>
-	<script src="js/jquery.mobile.js"></script>
-	
+<meta charset="UTF-8">
+<title>简单Jquery实现的响应式瀑布流 - 代码笔记 www.198zone.com</title>
+<link rel="stylesheet" type="text/css" href="css/cascade.css">
 </head>
 <body>
-<div data-role="page" class="type-home">
-	<div data-role="content">
-		<p id="jqm-version">1.1.0 Final Release</p>
-
-
-		<div class="content-secondary">
-
-			<div id="jqm-homeheader">
-				<h1 id="jqm-logo"><img src="docs/_assets/images/jquery-logo.png" alt="jQuery Mobile Framework" /></h1>
-				<p>A Touch-Optimized UI Framework built with jQuery and HTML5.</p>
-			</div>
-
-
-			<p class="intro"><strong>Welcome.</strong> jQuery Mobile is the easiest way to build sites and apps that are accessible on all popular smartphone, tablet and desktop devices. For jQuery 1.6.4 and 1.7.1.</p>
-
-			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f">
-				<li data-role="list-divider">Overview</li>
-				<li><a href="docs/about/intro.html">Intro to jQuery Mobile</a></li>
-				<li><a href="docs/about/getting-started.html">Quick start guide</a></li>
-				<li><a href="docs/about/features.html">Features</a></li>
-				<li><a href="docs/about/accessibility.html">Accessibility</a></li>
-				<li><a href="docs/about/platforms.html">Supported platforms</a></li>
-			</ul>
-
-		</div><!--/content-primary-->
-
-		<div class="content-primary">
-			<nav>
-
-
-				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-					<li data-role="list-divider">Components</li>
-					<li><a href="docs/pages/index.html">Pages &amp; dialogs</a></li>
-					<li><a href="docs/toolbars/index.html">Toolbars</a></li>
-					<li><a href="docs/buttons/index.html">Buttons</a></li>
-					<li><a href="docs/content/index.html">Content formatting</a></li>
-					<li><a href="docs/forms/index.html">Form elements</a></li>
-					<li><a href="docs/lists/index.html">List views</a></li>
-
-					<li data-role="list-divider">API</li>
-					<li><a href="docs/api/globalconfig.html">Configuring defaults</a></li>
-					<li><a href="docs/api/events.html">Events</a></li>
-					<li><a href="docs/api/methods.html">Methods &amp; Utilities</a></li>
-					<li><a href="docs/api/data-attributes.html">Data attribute reference</a></li>
-					<li><a href="docs/api/themes.html">Theme framework</a></li>
-
-
-				</ul>
-			</nav>
-		</div>
-
-
-
-	</div>
-
-	<div data-role="footer" class="footer-docs" data-theme="c">
-			<p>&copy; 2011-12 The jQuery Foundation</p>
-	</div>
-
+<div id="wrapper">
+<!-- 品牌列表开始 -->
+  <div class="brand-list">
+    <div class="brand-bd cle" id="brand-waterfall">
+        <!-- 循环字母模块 item -->
+        <div class="item" id="brand-a">
+            <h3>A</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-b">
+            <h3>B</h3>
+            <p><a href="#" target="_blank">HERBORIST/佰草集</a></p>
+            <p><a href="#" target="_blank">BURBERRY/巴宝莉/博柏利</a></p>
+            <p><a href="#" target="_blank">BIOTHERM/碧欧泉</a></p>
+            <p><a href="#" target="_blank">benefit/贝玲妃</a></p>
+            <p><a href="#" target="_blank">Bavii/柏羽</a></p>
+            <p><a href="#" target="_blank">PaulSmith/保罗史密夫</a></p>
+            <p><a href="#" target="_blank">Bobbi Brown/芭比布朗</a></p>
+            <p><a href="#" target="_blank">BVLGARI/宝格丽</a></p>
+            <p><a href="#" target="_blank">PURE&MILD/泊美</a></p>
+            <p><a href="#" target="_blank">baviphat/芭比菲特</a></p>
+            <p><a href="#" target="_blank">Peter Thomas Roth/彼得罗夫</a></p>
+            <p><a href="#" target="_blank">BeDOOK/比度克</a></p>
+            <p><a href="#" target="_blank">BIODERMA/贝德玛</a></p>
+            <p><a href="#" target="_blank">BKBarry-MBlistex/碧唇</a></p>
+        </div>
+        <div class="item" id="brand-c">
+            <h3>C</h3>
+            <p><a href="#" target="_blank">Fenix/长生鸟</a></p>
+            <p><a href="#" target="_blank">For Beloved One/宠爱之名</a></p>
+            <p><a href="#" target="_blank">CHARMZONE/婵真</a></p>
+        </div>
+        <div class="item" id="brand-d">
+            <h3>D</h3>
+            <p><a href="#" target="_blank">Dr.Jart+Dr.MJDior/迪奥</a></p>
+            <p><a href="#" target="_blank">dodo</a></p>
+            <p><a href="#" target="_blank">Dior/迪奥</a></p>
+            <p><a href="#" target="_blank">Dove/多芬</a></p>
+            <p><a href="#" target="_blank">DHC/蝶翠诗</a></p>
+            <p><a href="#" target="_blank">Davidoff/大卫杜夫</a></p>
+        </div>
+        <div class="item" id="brand-e">
+            <h3>E</h3>
+            <p><a href="#" target="_blank">N-Dorphin/恩朵娉</a></p>
+            <p><a href="#" target="_blank">OPERA/娥佩兰</a></p>
+            <p><a href="#" target="_blank">ELF</a></p>
+            <p><a href="#" target="_blank">eos</a></p>
+        </div>
+        <div class="item" id="brand-f">
+            <h3>F</h3>
+            <p><a href="#" target="_blank">芳草集</a></p>
+            <p><a href="#" target="_blank">THEFACESHOP/菲诗小铺</a></p>
+            <p><a href="#" target="_blank">Fanxishop/凡茜</a></p>
+            <p><a href="#" target="_blank">FANCL/芳珂（芳凯尔）</a></p>
+            <p><a href="#" target="_blank">VERSACE/范思哲</a></p>
+        </div>
+        <div class="item" id="brand-g">
+            <h3>G</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-h">
+            <h3>H</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-l">
+            <h3>L</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-m">
+            <h3>M</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-n">
+            <h3>N</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+         <div class="item" id="brand-o">
+            <h3>O</h3>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">OO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Oerbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">O花瑶花</a></p>
+            <p><a href="#" target="_blank">O花漾美姬</a></p>
+            <p><a href="#" target="_blank">OEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Oipitch/黑龙堂</a></p>
+        </div>
+         <div class="item" id="brand-o">
+            <h3>O</h3>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">OO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Oerbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">O花瑶花</a></p>
+            <p><a href="#" target="_blank">O花漾美姬</a></p>
+            <p><a href="#" target="_blank">OEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Oipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-a">
+            <h3>A</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-b">
+            <h3>B</h3>
+            <p><a href="#" target="_blank">HERBORIST/佰草集</a></p>
+            <p><a href="#" target="_blank">BURBERRY/巴宝莉/博柏利</a></p>
+            <p><a href="#" target="_blank">BIOTHERM/碧欧泉</a></p>
+            <p><a href="#" target="_blank">benefit/贝玲妃</a></p>
+            <p><a href="#" target="_blank">Bavii/柏羽</a></p>
+            <p><a href="#" target="_blank">PaulSmith/保罗史密夫</a></p>
+            <p><a href="#" target="_blank">Bobbi Brown/芭比布朗</a></p>
+            <p><a href="#" target="_blank">BVLGARI/宝格丽</a></p>
+            <p><a href="#" target="_blank">PURE&MILD/泊美</a></p>
+            <p><a href="#" target="_blank">baviphat/芭比菲特</a></p>
+            <p><a href="#" target="_blank">Peter Thomas Roth/彼得罗夫</a></p>
+            <p><a href="#" target="_blank">BeDOOK/比度克</a></p>
+            <p><a href="#" target="_blank">BIODERMA/贝德玛</a></p>
+            <p><a href="#" target="_blank">BKBarry-MBlistex/碧唇</a></p>
+        </div>
+        <div class="item" id="brand-c">
+            <h3>C</h3>
+            <p><a href="#" target="_blank">Fenix/长生鸟</a></p>
+            <p><a href="#" target="_blank">For Beloved One/宠爱之名</a></p>
+            <p><a href="#" target="_blank">CHARMZONE/婵真</a></p>
+        </div>
+        <div class="item" id="brand-d">
+            <h3>D</h3>
+            <p><a href="#" target="_blank">Dr.Jart+Dr.MJDior/迪奥</a></p>
+            <p><a href="#" target="_blank">dodo</a></p>
+            <p><a href="#" target="_blank">Dior/迪奥</a></p>
+            <p><a href="#" target="_blank">Dove/多芬</a></p>
+            <p><a href="#" target="_blank">DHC/蝶翠诗</a></p>
+            <p><a href="#" target="_blank">Davidoff/大卫杜夫</a></p>
+        </div>
+        <div class="item" id="brand-e">
+            <h3>E</h3>
+            <p><a href="#" target="_blank">N-Dorphin/恩朵娉</a></p>
+            <p><a href="#" target="_blank">OPERA/娥佩兰</a></p>
+            <p><a href="#" target="_blank">ELF</a></p>
+            <p><a href="#" target="_blank">eos</a></p>
+        </div>
+        <div class="item" id="brand-f">
+            <h3>F</h3>
+            <p><a href="#" target="_blank">芳草集</a></p>
+            <p><a href="#" target="_blank">THEFACESHOP/菲诗小铺</a></p>
+            <p><a href="#" target="_blank">Fanxishop/凡茜</a></p>
+            <p><a href="#" target="_blank">FANCL/芳珂（芳凯尔）</a></p>
+            <p><a href="#" target="_blank">VERSACE/范思哲</a></p>
+        </div>
+        <div class="item" id="brand-g">
+            <h3>G</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-h">
+            <h3>H</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-l">
+            <h3>L</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-m">
+            <h3>M</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-n">
+            <h3>N</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+         <div class="item" id="brand-o">
+            <h3>O</h3>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">OO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Oerbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">O花瑶花</a></p>
+            <p><a href="#" target="_blank">O花漾美姬</a></p>
+            <p><a href="#" target="_blank">OEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Oipitch/黑龙堂</a></p>
+        </div>
+         <div class="item" id="brand-o">
+            <h3>O</h3>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">OOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">OO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Oerbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">O花瑶花</a></p>
+            <p><a href="#" target="_blank">O花漾美姬</a></p>
+            <p><a href="#" target="_blank">OEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Oipitch/黑龙堂</a></p>
+        </div>
+    </div>
+  </div>
+  <!-- 品牌列表 end -->
 </div>
+
+<!--以上无正文 转载或者使用请注释出自代码笔记-->	 
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/cascade.js"></script>
+<script>
+	 $('#brand-waterfall').cascade();
+</script>
 </body>
 </html>
